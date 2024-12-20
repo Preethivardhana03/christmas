@@ -1,0 +1,109 @@
+/* General Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for the Tree */
+.tree-container {
+    position: relative;
+    text-align: center;
+}
+
+/* Tree Styling */
+.tree {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+/* Tree Layers */
+.tree-layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 40px;
+    background-color: #2e8b57;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.8);
+}
+
+.layer1 { top: 0; }
+.layer2 { top: 30px; width: 180px; }
+.layer3 { top: 60px; width: 200px; }
+.layer4 { top: 90px; width: 220px; }
+.layer5 { top: 120px; width: 240px; }
+
+/* Tree Trunk */
+.tree-trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 50px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+/* Lights (Sparkles) */
+.lights {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.lights::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    animation: sparkle 1.5s infinite alternate;
+    animation-delay: 0s;
+}
+
+.lights::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width: 10px;
+    height: 10px;
+    background-color: violet;
+    border-radius: 50%;
+    animation: sparkle 2.5s infinite alternate;
+    animation-delay: 0.5s;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
